@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load omfilters%}
+{% block conteudo %}
+
+<div class="row mt-3">
+    <div class="col">
+        <h3>resumo do carrinho</h3>
+        <p class="lead">Os produtos, quantidades e preços que você escolheu.</p>
+        {% include 'parciais/_carrinho.html' %}
+
+
+
+
+    </div>
+</div>
+
+<div class="col">
+
+    <p class="lead text-center"><strong> Total do carrinho:</strong> {{ carrinho|cart_totais|formata_preco}}</p>
+</div>
+<div class="row">
+    <div class="col">
+        <a class="btn btn-block btn-primary btn-lg" href="{% url 'pedido:pagar' %}">
+            Realizar pedido e pagar
+        </a>
+    </div>
+</div>
+{% endblock%}
